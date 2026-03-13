@@ -246,7 +246,80 @@ public class ProjetoCalculadora extends JFrame implements KeyListener {
             valor = valorAnterior;
 
         roloPapel.append(alinhaStringDir("=======================" + "\n"));
+        roloPapel.append((alinhaStringDir(""+ "\n")));
+        roloPapel.append((alinhaStringDir(formatStrNumerica(valor, casasDecimais) + "/" +  "\n")));
+        soma = Double.parseDouble(valor);
+        visor.setText(formatStrNumerica("" + soma, casasDecimais));
+        valor = "";
+        operador = "/";
     }
+
+    public void teclaMultip(){
+        if (valor == "") valorAnterior;
+
+        roloPapel.append(alinhaStringDir("----------------------------" + "\n"));
+        roloPapel.append(alinhaStringDir("" + "\n"));
+        roloPapel.append(alinhaStringDir(formatStrNumerica(valor, casasDecimais) + "*"
+                + "\n"));
+
+        soma = Double.parseDouble(valor);
+        visor.setText(formatStrNumerica("" + soma, casasDecimais));
+        valor = "";
+        operador = "*";
+    }
+
+    public void teclaEnter(){
+        if ((operador == "+") || (operador == "-")){
+            roloPapel.append(alinhaStringDir("----------------------------" + "\n"));
+            roloPapel.append(alinhaStringDir(formatStrNumerica("" +
+                    soma, casasDecimais) + "+" + "\n"));
+        }
+
+        if ((operador == "/") && (soma != 0)){
+            roloPapel.append(alinhaStringDir(formatStrNumerica(valor, casasDecimais)
+                    + " " + "\n"));
+
+            roloPapel.append(alinhaStringDir("----------------------------" + "\n"));
+            soma = soma / Double.parseDouble(valor);
+            roloPapel.append(alinhaStringDir(formatStrNumerica("" +
+                    soma, casasDecimais) + "+" + "\n"));
+        }
+
+        if (operador == "*"){
+            roloPapel.append(alinhaStringDir(formatStrNumerica(valor, casasDecimais)
+                    + "*" + "\n"));
+
+            roloPapel.append(alinhaStringDir("----------------------------" + "\n"));
+            soma = soma * Double.parseDouble(valor);
+            roloPapel.append(alinhaStringDir(formatStrNumerica("" +
+                    soma, casasDecimais) + "+" + "\n"));
+        }
+
+        roloPapel.append(alinhaStringDir(" " + "\n"));
+        visor.setText(formatStrNumerica("" + soma, casasDecimais));
+        valorAnterior = "" + soma;
+        soma = 0;
+        valor = "";
+    }
+
+    public String alinhaStringDir(String s){
+        String alinhador = "";
+        int i;
+        for (i = 0; i < (36 - s.length()); i++){
+            alinhador = alinhador + " ";
+        }
+        return alinhador + s;
+    }
+
+    public String formatStrNumerica(String s, int dig){
+        DecimalFormat decimal = new DecimalFormat();
+        decimal.setMinimumFractionDigits(dig);
+        DecimalFormatSymbols simbolos = new DecimalFormatSymbols();
+        simbolos.setGroupingSeparator('.');
+        simbolos.setDecimalSeparator(',');
+        decimal.setDecimalFormatSymbols(simbolos);
+    }
+
 }
 
 
