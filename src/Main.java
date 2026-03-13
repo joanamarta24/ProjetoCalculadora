@@ -320,6 +320,91 @@ public class ProjetoCalculadora extends JFrame implements KeyListener {
         decimal.setDecimalFormatSymbols(simbolos);
     }
 
+    private void addComponent(Component component, int row, int column, int width, int height ){
+        constraints.gridx  = column;
+        constraints.gridy = row;
+        constraints.gridwidth = width;
+        constraints.gridheight = height;
+        layout.setConstraints(component,constraints);
+        container.add(component);
+    }
+
+    public ProjetoCalculadora(){}
+    super("Calculadora 6.0 (Orrico)");
+    container = getContentPane();
+    layout = new GridBagLayout();
+    container.setLayout(layout);
+    constraints = new GridBagConstraints();
+
+    botao1 = new JButton("1");
+    botao2 = new JButton("2");
+    botao3 = new JButton("3");
+    botao4 = new JButton("4");
+    botao5 = new JButton("5");
+    botao6 = new JButton("6");
+    botao7 = new JButton("7");
+    botao8 = new JButton("8");
+    botao9 = new JButton("9");
+    botao0 = new JButton("0");
+    botaoC = new JButton("C");
+    botaoC.setToolTipText("Tecle C");
+    botaoCE = new JButton("CE");
+    botaoCE.setToolTipText("Tecle E");
+    botaoDiv = new JButton("/");
+    botaoMultip = new JButton("*");
+    botaoMenos = new JButton("-");
+    botaoMais =new JButton("+");
+    botao Virgula = new JButton(",");
+    botaoVirgula.setToolTipText("Tecle, (Vírgula)");
+    botaoTotal = new JButton("T");
+    botaoTotal.setToolTipText("Tecle ENTER");
+    botaoPerc = new JButton("%");
+    botaoPerc.setToolTipText("Tecle P");
+    botaoBackspace = new JButton("<");
+    botaoBackpace.setToolTipText("Tecle BackSpace");
+    keyCodigo = new JLabel("0");
+    visor = new JLabel("0.00");
+    visor.setHorizontalAlignment(SwingConstants.RIGHT);
+    visor.setFont(new Font("Courier New", Font.BOLD,16));
+    visor.setForeground(Color.RED);
+    visor.setToolTipTexxt("Valores até 14 digitos");
+    roloPapel = new JTextArea(12,15);
+    roloPapel.setEditable(false);
+    roloPapel.setFont(new Font("Courier New", Font.PLAIN,11));
+    scroll = new JScrollPane(roloPapel,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+    scroll.setBorder(new LineBorder(Color.pink,3,true));
+    botao2dig = new JRadioButton("2", true);
+    botao4dig = new JRadioButton("4",false)/botao6dig = new JRadioButton("6: Digitos Decimais",false);
+    botaoDecimais = new ButtonGroup();
+    botaoDecimais.add(botao2dig);
+    botaoDecimais.add(botao4dig);
+    botaoDecimais.add(botao6dig);
+    visor.setFocusable(true);
+    botao1.setFocusable(false);
+    botao2.setFocusable(false);
+    botao3.setFocusable(false);
+    botao4.setFocusable(false);
+    botao5.setFocusable(false);
+    botao6.setFocusable(false);
+    botao7.setFocusable(false);
+    botao8.setFocusable(false);
+    botao9.setFocusable(false);
+    botao0.setFocusable(false);
+    botaoC.setFocusable(false);
+    botaoCE.setFocusable(false);
+    botaoMais.setFocusable(false);
+    botaoMenos.setFocusable(false);
+    botaoDiv.setFocusable(false);
+    botaoPerc.setFocusable(false);
+    botaoMultip.setFocusable(false);
+    roloPapel.setFocusable(false);
+    botaoVirgula.setFocusable(false);
+    botaoTotal.setFocusable(false);
+    botaoBackspace.setFocusable(false);
+    botao2dig.setFocusable(false);
+    botao4dig.setFocusable(false);
+    botao6dig.setFocusable(false);
+
 }
 
 
