@@ -98,14 +98,12 @@ Dimension resVideo = Toolkit.getDefaultToolkit().getScreenSize();
 Dimension tamForm = getSize();
 
 // Centraliza a janela na tela
-setLocation(
-            (resVideo.width - tamForm.width) / 2,
-        (resVideo.height - tamForm.height) / 2
-        );
+setLocation((resVideo.width - tamForm.width) / 2,(resVideo.height - tamForm.height) / 2);
 
 setResizable(false);
 setVisible(true);
     }
+
 
 public static void main(String[] args) {
     // Inicialização do projeto
