@@ -42,7 +42,7 @@ public class ProjetoCalculadoraCientifica extends JFrame implements KeyListener 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new GridBagLayout());
     }
-
+    // comentário teste
     private void inicializarComponentes() {
         for (int i = 0; i <= 9; i++) {
             botoesNumericos.put(String.valueOf(i), new JButton(String.valueOf(i)));
